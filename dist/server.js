@@ -7,21 +7,19 @@ var express_1 = __importDefault(require("express"));
 var path_1 = __importDefault(require("path"));
 require("dotenv").config();
 var express_ejs_layouts_1 = __importDefault(require("express-ejs-layouts"));
-var livereload = require("livereload");
-var connectLivereload = require("connect-livereload");
 var cors_1 = __importDefault(require("cors"));
 var main_routes_1 = require("./route/main.routes");
 var user_routes_1 = require("./route/user.routes");
 var app = (0, express_1.default)();
 // 🔥 Setup live reload
-var liveReloadServer = livereload.createServer();
-liveReloadServer.watch(["views", "public"]);
-liveReloadServer.server.once("connection", function () {
-    setTimeout(function () {
-        liveReloadServer.refresh("/");
-    }, 100);
-});
-app.use(connectLivereload());
+// const liveReloadServer = livereload.createServer();
+// liveReloadServer.watch(["views", "public"]);
+// liveReloadServer.server.once("connection", () => {
+//   setTimeout(() => {
+//     liveReloadServer.refresh("/");
+//   }, 100);
+// });
+// app.use(connectLivereload());
 app.use(express_1.default.static(__dirname + '/public'));
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());
