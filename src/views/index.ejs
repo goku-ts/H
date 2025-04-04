@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Pitch.io</title>
+    <link rel="stylesheet" href="/css/output.css">
+    <script type="text/javascript" defer src="/js/script.js"></script>
+</head>
+
+<body class="bg-slate-50 font-sans">
+
+    <div class="flex h-screen">
+
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6">
+            <!-- Header -->
+            <!-- <div class="flex justify-between items-center mb-6">
+                <div>
+                    <h1 class="text-xl font-semibold">DASHBOARD</h1>
+                    <p class="text-gray-500">Monday, 02 March 2020</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="text-gray-500">📧</div>
+                    <div class="text-gray-500">🔔</div>
+                    <div class="flex items-center space-x-2">
+                        <div class="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center">
+                            AJ
+                        </div>
+                        <p class="font-semibold">Alyssa Jones</p>
+                        <span class="text-gray-500">▼</span>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- Greeting Section -->
+            <div class="bg-gradient-to-r from-blue-100 to-white rounded-lg p-6 flex justify-between items-center mb-6">
+                <div>
+                    <h2 class="text-6xl font-bold text-orange-400">MedRec+</h2>
+                    <p id="dateTime" class="text-gray-600 text-xs mt-5 font-bold">Loading...</p>
+                </div>
+                <img src="/images/doctor.png" alt="Illustration" class="w-36 h-40 object-cover">
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="flex flex-row gap-4 mb-6">
+                <div class="bg-yellow-300 rounded-lg p-4">
+                    <h3 class="text-gray-600 text-l">Doctors on call</h3>
+                    <p class="text-2xl font-bold">
+                        <%= homeData.doctors %>
+                    </p>
+                </div>
+                <!-- <div class="bg-purple-600 text-white rounded-lg p-4">
+                    <h3>Completed</h3>
+                    <p class="text-2xl font-bold">77%</p>
+                </div> -->
+                <div class="bg-pink-400 text-white rounded-lg p-4">
+                    <h3>Today's Appointments</h3>
+                    <p class="text-2xl font-bold">
+                        <%= homeData.appointments %>
+                    </p>
+                </div>
+                <div class="bg-purple-200 rounded-lg p-4">
+                    <h3 class="text-l">Patients</h3>
+                    <p class="text-2xl font-bold">
+                        <%= homeData.patients %>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Preview Section -->
+
+        </div>
+    </div>
+</body>
+
+<script>
+    function updateDateTime() {
+        const now = new Date();
+        const formattedDateTime = now.toLocaleString('en-US', {
+            month: 'long',
+            day: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: true,
+            timeZone: 'UTC' // GMT timezone
+        }) + ' GMT';
+
+        document.getElementById('dateTime').textContent = formattedDateTime;
+    }
+
+    // Update immediately on page load
+    updateDateTime();
+
+    // Optional: Update every second for real-time display
+    setInterval(updateDateTime, 1000);
+</script>
+
+</html>

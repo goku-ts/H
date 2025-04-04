@@ -1,0 +1,9 @@
+{
+    "watch": [
+        "views",
+        "public",
+        "server.ts"
+    ],
+    "ext": "ts,ejs,css",
+    "exec": "npx ts-node src/server.ts"
+}

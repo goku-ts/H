@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Appointment Details - MedRec</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    </head>
+
+    <body class="bg-gray-50 min-h-screen font-sans">
+        <div class="container mx-auto px-4 py-8 max-w-4xl">
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-8">
+                <h1 class="text-xl font-bold text-blue-400">Appointment Details</h1>
+                <a href="/appointments" class="text-blue-400 hover:text-blue-600 text-sm font-medium">Back to
+                    Appointments</a>
+            </div>
+
+            <!-- Appointment Card -->
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <div class="border-b border-gray-200 pb-4 mb-6">
+                    <h2 class="text-2xl font-semibold text-gray-800">Appointment #<%= appointment.id %>
+                    </h2>
+                    <p class="text-sm text-gray-500">Status:
+                        <span
+                            class="<% if (appointment.status === 'Scheduled') { %>text-blue-600<% } else if (appointment.status === 'Completed') { %>text-green-600<% } else { %>text-yellow-600<% } %> font-medium">
+                            <%= appointment.status %>
+                        </span>
+                    </p>
+                </div>
+
+                <!-- Basic Info Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <span class="text-sm text-gray-500 block">Patient</span>
+                        <span class="text-lg text-gray-800">
+                            <%= appointment.patient %>
+                        </span>
+                    </div>
+                    <div>
+                        <span class="text-sm text-gray-500 block">Doctor</span>
+                        <span class="text-lg text-gray-800">
+                            <%= appointment.doctor %>
+                        </span>
+                    </div>
+                    <div>
+                        <span class="text-sm text-gray-500 block">Date</span>
+                        <span class="text-lg text-gray-800">
+                            <%= appointment.date %>
+                        </span>
+                    </div>
+                    <div>
+                        <span class="text-sm text-gray-500 block">Time</span>
+                        <span class="text-lg text-gray-800">
+                            <%= appointment.time %>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    </html>
+</body>
+
+</html>
