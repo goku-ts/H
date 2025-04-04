@@ -2,8 +2,8 @@ import express from "express"
 import path from "path"
 require("dotenv").config()
 import expressLayout from "express-ejs-layouts"
-const livereload = require("livereload");
-const connectLivereload = require("connect-livereload");
+//import livereload from "livereload";
+//import connectLivereload from "connect-livereload";
 
 import { dbConnect } from "./db/connection.db"
 import cors from "cors"
@@ -15,16 +15,16 @@ import { userRouter } from "./route/user.routes";
 const app = express()
 
 // 🔥 Setup live reload
-const liveReloadServer = livereload.createServer();
-liveReloadServer.watch(["views", "public"]);
+// const liveReloadServer = livereload.createServer();
+// liveReloadServer.watch(["views", "public"]);
 
-liveReloadServer.server.once("connection", () => {
-  setTimeout(() => {
-    liveReloadServer.refresh("/");
-  }, 100);
-});
+// liveReloadServer.server.once("connection", () => {
+//   setTimeout(() => {
+//     liveReloadServer.refresh("/");
+//   }, 100);
+// });
 
-app.use(connectLivereload());
+// app.use(connectLivereload());
 
 
 app.use(express.static(__dirname + '/public'))
