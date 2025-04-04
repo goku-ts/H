@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Doctor Details - MedRec</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    </head>
+
+    <body class="bg-gray-50 min-h-screen font-sans">
+        <div class="container mx-auto px-4 py-8 max-w-4xl">
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-8">
+                <h1 class="text-3xl font-bold text-blue-400">Doctor Details</h1>
+                <a href="/doctors" class="text-blue-400 hover:text-blue-500 text-sm font-medium">Back to Doctors</a>
+            </div>
+
+            <!-- Doctor Card -->
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <div class="flex items-center border-b border-gray-200 pb-4 mb-6">
+                    <img src="<%= doctor.image || '/images/avatar.jpg' %>" alt="<%= doctor.name %>'s Image"
+                        class="w-24 h-24 rounded-full mr-4 object-cover">
+                    <div>
+                        <h2 class="text-2xl font-semibold text-gray-800">
+                            <%= doctor.name %>
+                        </h2>
+                        <p class="text-sm text-gray-500">ID: <%= doctor.id %>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Basic Info Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <span class="text-sm text-gray-500 block">Specialization</span>
+                        <span class="text-lg text-gray-800">
+                            <%= doctor.specialization %>
+                        </span>
+                    </div>
+                    <div>
+                        <span class="text-sm text-gray-500 block">Contact</span>
+                        <span class="text-lg text-gray-800">
+                            <%= doctor.contact %>
+                        </span>
+                    </div>
+                    <div>
+                        <span class="text-sm text-gray-500 block">Email</span>
+                        <span class="text-lg text-gray-800">
+                            <%= doctor.email %>
+                        </span>
+                    </div>
+                    <div class="sm:col-span-2">
+                        <span class="text-sm text-gray-500 block">Availability</span>
+                        <div class="text-lg text-gray-800">
+                            <% if (doctor.availability && doctor.availability.length> 0) { %>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <% doctor.availability.forEach(slot=> { %>
+                                        <li>
+                                            <%= slot %>
+                                        </li>
+                                        <% }) %>
+                                </ul>
+                                <% } else { %>
+                                    <span>Not Available</span>
+                                    <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    </html>
+</body>
+
+</html>
